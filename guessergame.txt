@@ -1,0 +1,155 @@
+import java.util.*;
+
+class Guesser
+{
+	int guessNum;
+	
+	int guessNum()
+	{
+		Scanner scan=new Scanner(System.in);
+		System.out.println("guesser kindly guess a number between 0 to 9");
+		guessNum=scan.nextInt();
+		return guessNum;
+	}
+}
+
+class Player1
+{
+int guessNum;
+
+int guessNum()
+
+    {
+		Scanner scan=new Scanner(System.in);
+		System.out.println("player1 kindly guess a number between 0 to 9");
+		do {
+			System.out.println(guessNum);
+			guessNum++;
+		}while(guessNum<10);
+		guessNum=scan.nextInt();
+	    return guessNum;
+	}
+}
+
+class Player2
+{
+	int guessNum;
+	
+	int guessNum()
+	{
+		Scanner scan=new Scanner(System.in);
+		System.out.println("player2 kindly a guess a number between o to 9");
+		do {
+			System.out.println(guessNum);
+			guessNum++;
+		}while(guessNum<10);
+		guessNum=scan.nextInt();
+		return guessNum;
+	}
+}
+
+class Player3
+{
+	int guessNum;
+	
+	int guessNum()
+	{
+		Scanner scan=new Scanner(System.in);
+		System.out.println("player3 kindly enter a number between 0 to 9");
+		do {
+			System.out.println(guessNum);
+			guessNum++;
+		}while(guessNum<=10);
+		guessNum=scan.nextInt();
+		return guessNum;
+		
+	}
+}
+
+class Umpire
+{
+	int numFromGuesser;
+	int numFromPlayer1;
+	int numFromPlayer2;
+	int numFromPlayer3;
+	
+	void collectNumFromGuesser()
+	{
+		Guesser g=new Guesser();
+		numFromGuesser=g.guessNum();
+	}
+	void collectNumFromPlayer1()
+	{
+		Player1 p1=new Player1();
+		numFromPlayer1=p1.guessNum();
+	}
+	void collectNumFromPlayer2()
+	{
+		Player2 p2=new Player2();
+		numFromPlayer2=p2.guessNum();
+	}
+	void collectNumFromPlayer3()
+	{
+		Player3 p3=new Player3();
+		numFromPlayer3=p3.guessNum();	
+	}
+	void compare()
+	{
+		if(numFromGuesser==numFromPlayer1)
+		{
+			if(numFromGuesser==numFromPlayer2 && numFromGuesser==numFromPlayer3)
+			{
+				System.out.println("game tied between all players please play again");
+			}
+			else if(numFromGuesser==numFromPlayer3)
+			{
+				System.out.println("player1 and player3 won the game and qualified for semi-finals");
+			}
+			else if(numFromGuesser==numFromPlayer2)
+			{
+				System.out.println("player1 and player2 won the game and qualified for semi-finals");
+			}
+			else
+			{
+			System.out.println("player1 won the game");
+		    }
+		}
+		else if(numFromGuesser==numFromPlayer2)
+		{
+			if(numFromGuesser==numFromPlayer3)
+			{
+				System.out.println("player2 and player3 won the game and qualified for semi-finals");
+			}
+			else 
+			{
+			System.out.println("player2 won the game");
+			}
+		}
+		else if(numFromGuesser==numFromPlayer3)
+		{
+			System.out.println("player3 won the game");
+		}
+		else
+		{
+			System.out.println("no one won the game play again");
+		}
+    }
+}
+
+
+
+public class assignmentGG {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Umpire u=new Umpire();
+		u.collectNumFromGuesser();
+		u.collectNumFromPlayer1();
+		u.collectNumFromPlayer2();
+		u.collectNumFromPlayer3();
+		u.compare();
+
+	}
+
+}
